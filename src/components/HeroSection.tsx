@@ -1,3 +1,4 @@
+'use client';
 import React from "react";
 import Image from "next/image";
 import hero from "../assets/hero2.png";
@@ -7,8 +8,8 @@ const HeroSection = () => {
     <div className="relative bg-black min-h-screen flex flex-col justify-start items-center mt-[4rem]">
       {/* Overlay Text */}
       <div className="z-10 text-[#98cbff] text-center">
-        <h1 className="text-4xl md:text-6xl font-bold">Satellite Tracking</h1>
-        <p className="text-lg md:text-5xl font-bold mt-2">
+        <h1 className="text-4xl md:text-5xl font-bold">Satellite Tracking</h1>
+        <p className="text-lg md:text-4xl font-bold mt-2">
           for Evaluation and Analysis of Marinery
         </p>
       </div>
