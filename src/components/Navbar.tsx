@@ -10,7 +10,7 @@ const Navbar = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   return (
-    <section>
+    <section className="sticky top-0 z-50">
       <nav className="bg-[rgba(25,39,122,1)] rounded-lg p-4 mx-auto w-[90vw] z-50 text-white flex items-center justify-between shadow-lg">
         {/* Logo Section */}
         <Link href="/" className="flex items-center gap-2">
