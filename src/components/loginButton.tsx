@@ -3,11 +3,11 @@ import { useQuery } from "@tanstack/react-query";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import Link from "next/link";
 
-function getAvatarLink() {
+function useAvatarLink() {
   const { data } = useQuery({
     queryKey: ["userPfp"],
     queryFn: () =>
-      fetch("https://api.steams.social/profile").then((res) => res.json()),
+      fetch("https://api.steams.social/self").then((res) => res.json()),
   });
 
   return data.picture;
@@ -21,13 +21,15 @@ export default function UserButton() {
     staleTime: 0,
   });
 
+  const linkStr = useAvatarLink();
+
   if (isPending) return <div>Loading...</div>;
 
   console.log(data.loginStatus);
 
   return data.loginStatus ? (
     <Avatar>
-      <AvatarImage src={getAvatarLink()} />
+      <AvatarImage src={linkStr} />
       <AvatarFallback>CN</AvatarFallback>
     </Avatar>
   ) : (
