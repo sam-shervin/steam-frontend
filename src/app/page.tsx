@@ -4,6 +4,8 @@ import GlobeComponent from "../components/Global";
 import HeatmapSection from "../components/HeatMap";
 import Complain from "../components/Complain";
 import Track from "../components/Track";
+import ContactUs from "../components/Contact";
+import Footer from "../components/Footer";
 
 export default function Home() {
   return (
@@ -17,6 +19,8 @@ export default function Home() {
       <HeatmapSection />
       <Complain />
       <Track />
+      <ContactUs />
+      <Footer />
     </div>
   );
 }
