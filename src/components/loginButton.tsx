@@ -4,7 +4,7 @@ import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import Link from "next/link";
 
 function getAvatarLink() {
-  const { isPending, error, data } = useQuery({
+  const { data } = useQuery({
     queryKey: ["userPfp"],
     queryFn: () =>
       fetch("https://api.steams.social/profile").then((res) => res.json()),
@@ -14,7 +14,7 @@ function getAvatarLink() {
 }
 
 export default function UserButton() {
-  const { isPending, fetchStatus, error, data } = useQuery({
+  const { isPending, data } = useQuery({
     queryKey: ["authStatus"],
     queryFn: () =>
       fetch("https://api.steams.social/checkSession").then((res) => res.json()),
