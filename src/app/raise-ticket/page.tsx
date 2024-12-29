@@ -1,7 +1,7 @@
 "use client";
 import { useState, useEffect } from "react";
 import Layout from "@/app/layout";
-import Navbar from "@/components/Navbar";
+import Navbar from "@/components/Navbar2";
 
 export default function RaiseTicketPage() {
   const [ticket, setTicket] = useState({
@@ -86,7 +86,7 @@ export default function RaiseTicketPage() {
         <div
           className="container mx-auto px-4 py-10 min-h-screen flex justify-center items-center"
           style={{
-            background: "linear-gradient(135deg, #0C114D 21%, #19277A 51%)",
+            background: "linear-gradient(135deg, #000000 31%, #19277A 71%)",
           }}
         >
           <div className="w-full lg:w-1/2 md:w-3/4 sm:w-full bg-[#3F7596] rounded-2xl shadow-lg border border-gray-300">
