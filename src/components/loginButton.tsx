@@ -1,42 +1,39 @@
 "use client";
-import { useQuery } from "@tanstack/react-query";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import Link from "next/link";
+import { useState, useEffect } from "react";
 
-function useAvatarLink() {
-  const { data } = useLogin();
-  if (data.loginStatus) {
-    const { data } = useQuery({
-      queryKey: ["userPfp"],
-      queryFn: () =>
-        fetch("https://api.steams.social/self").then((res) => res.json()),
-    });
-
-    return data.picture;
-  }
-
-  return null;
-}
-
-function useLogin() {
-  const { isPending, data } = useQuery({
-    queryKey: ["authSts"],
-    queryFn: () =>
-      fetch("https://api.steams.social/self").then((res) => res.json()),
-  });
-
-  return { isPending, data };
-}
+// function useAvatarLink() {
+//   const { data } = useLogin();
+//   if (data.loginStatus) {
+//     const { data } = useQuery({
+//       queryKey: ["userPfp"],
+//       queryFn: () =>
+//         fetch("https://api.steams.social/self").then((res) => res.json()),
+//     });
+//
+//     return data.picture;
+//   }
+//
+//   return null;
+// }
 
 export default function UserButton() {
-  const { isPending, data } = useLogin();
   // const linkStr = useAvatarLink();
+  const [data, setData] = useState(null);
+  const [isLoading, setLoading] = useState(true);
+  useEffect(() => {
+    fetch("https://api.steams.social/checkSession")
+      .then((res) => res.json())
+      .then((data) => {
+        setData(data.loginStatus);
+        setLoading(false);
+      });
+  }, []);
 
-  if (isPending) return <div>Loading...</div>;
+  if (isLoading) return <p>Loading...</p>;
 
-  console.log(data.loginStatus);
-
-  return data.loginStatus ? (
+  return data ? (
     <Avatar>
       <AvatarImage src={"https://github.com/shadcn.png"} />
       <AvatarFallback>CN</AvatarFallback>
