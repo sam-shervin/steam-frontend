@@ -1,10 +1,11 @@
-'use client';
+"use client";
 import React, { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { Menu, Transition } from "@headlessui/react";
 import { FaBars, FaTimes, FaCog, FaRocket } from "react-icons/fa";
 import logo from "../assets/logo.png";
+import UserButton from "./loginButton";
 
 const Navbar = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -66,12 +67,7 @@ const Navbar = () => {
           <Link href="/contact" className="hover:underline">
             Contact
           </Link>
-          <Link
-            href="https://api.steams.social/login"
-            className="bg-[rgba(63,117,150,1)] hover:bg-orange-500 px-4 py-2 rounded-lg"
-          >
-            Get Started
-          </Link>
+          <UserButton />
         </div>
 
         {/* Mobile Menu */}
@@ -93,7 +89,7 @@ const Navbar = () => {
               Contact
             </Link>
             <Link
-              href="https://api.steams.social/login"
+              href="https://api.steams.social/letmein"
               className="bg-orange-500 hover:bg-orange-600 px-4 py-2 rounded-lg"
             >
               Get Started
