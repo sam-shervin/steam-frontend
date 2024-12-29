@@ -15,7 +15,7 @@ const Navbar = () => {
         {/* Logo Section */}
         <Link href="/" className="flex items-center gap-2">
           <Image src={logo} alt="Logo" width={40} height={40} />
-          <span className="text-xl font-semibold">Space Explorer</span>
+          <span className="text-xl font-semibold">STEAM</span>
         </Link>
 
         {/* Desktop Menu */}
