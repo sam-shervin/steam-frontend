@@ -20,20 +20,20 @@ import { useState, useEffect } from "react";
 
 export default function UserButton() {
   // const linkStr = useAvatarLink();
-  const [data, setData] = useState(null);
+  const [isLoggedin, setIsLoggedIn] = useState(false);
   const [isLoading, setLoading] = useState(true);
   useEffect(() => {
     fetch("https://api.steams.social/checkSession")
       .then((res) => res.json())
       .then((data) => {
-        setData(data.loginStatus);
+        setIsLoggedIn(data.loginStatus);
         setLoading(false);
       });
   }, []);
 
   if (isLoading) return <p>Loading...</p>;
 
-  return data ? (
+  return isLoggedin ? (
     <Avatar>
       <AvatarImage src={"https://github.com/shadcn.png"} />
       <AvatarFallback>CN</AvatarFallback>
