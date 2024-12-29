@@ -4,24 +4,33 @@ import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import Link from "next/link";
 
 function useAvatarLink() {
-  const { data } = useQuery({
-    queryKey: ["userPfp"],
+  const { data } = useLogin();
+  if (data.loginStatus) {
+    const { data } = useQuery({
+      queryKey: ["userPfp"],
+      queryFn: () =>
+        fetch("https://api.steams.social/self").then((res) => res.json()),
+    });
+
+    return data.picture;
+  }
+
+  return null;
+}
+
+function useLogin() {
+  const { isPending, data } = useQuery({
+    queryKey: ["authSts"],
     queryFn: () =>
       fetch("https://api.steams.social/self").then((res) => res.json()),
   });
 
-  return data.picture;
+  return { isPending, data };
 }
 
 export default function UserButton() {
-  const { isPending, data } = useQuery({
-    queryKey: ["authStatus"],
-    queryFn: () =>
-      fetch("https://api.steams.social/checkSession").then((res) => res.json()),
-    staleTime: 0,
-  });
-
-  const linkStr = useAvatarLink();
+  const { isPending, data } = useLogin();
+  // const linkStr = useAvatarLink();
 
   if (isPending) return <div>Loading...</div>;
 
@@ -29,7 +38,7 @@ export default function UserButton() {
 
   return data.loginStatus ? (
     <Avatar>
-      <AvatarImage src={linkStr} />
+      <AvatarImage src={"https://github.com/shadcn.png"} />
       <AvatarFallback>CN</AvatarFallback>
     </Avatar>
   ) : (
