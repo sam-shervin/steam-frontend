@@ -1,6 +1,7 @@
 'use client';
 
 import React, { useRef } from "react";
+import { useRouter } from "next/navigation";
 import Image from "next/image";
 import { motion, useInView } from "framer-motion";
 import complainImg from "../assets/complain.png"; // Update the image path as needed
@@ -8,6 +9,11 @@ import complainImg from "../assets/complain.png"; // Update the image path as ne
 const Complain = () => {
   const sectionRef = useRef(null);
   const isInView = useInView(sectionRef, { once: false });
+  const router = useRouter();
+
+  const handleRaiseTicketClick = () => {
+    router.push("/raise-ticket");
+  };
 
   return (
     <div id="complaint" 
@@ -65,7 +71,7 @@ const Complain = () => {
         transition={{ duration: 0.8, ease: "easeInOut", delay: 0.4 }}
         className="flex justify-center w-full -mt-10"
       >
-        <button
+        <button onClick={handleRaiseTicketClick}
           className="bg-[#3F7596] text-white font-bold py-3 px-8 rounded-full hover:opacity-90 transition"
         >
           Report Issue
