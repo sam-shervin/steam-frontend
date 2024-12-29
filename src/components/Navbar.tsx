@@ -21,8 +21,8 @@ const Navbar = () => {
 
         {/* Desktop Menu */}
         <div className="hidden md:flex items-center gap-6">
-          <Link href="/why-steam" className="hover:underline">
-            Why Steam?
+          <Link href="#about" className="hover:underline">
+            About
           </Link>
           <Menu as="div" className="relative">
             <Menu.Button className="flex items-center gap-2 hover:underline">
@@ -40,31 +40,31 @@ const Navbar = () => {
                 <Menu.Item>
                   {({ active }) => (
                     <Link
-                      href="/services/option1"
+                      href="/map"
                       className={`${
                         active && "bg-gray-200"
                       } flex items-center gap-2`}
                     >
-                      <FaRocket /> Option 1
+                      <FaRocket /> Pollution Heatmap
                     </Link>
                   )}
                 </Menu.Item>
                 <Menu.Item>
                   {({ active }) => (
                     <Link
-                      href="/services/option2"
+                      href="/raise-ticket"
                       className={`${
                         active && "bg-gray-200"
                       } flex items-center gap-2 p-2`}
                     >
-                      <FaCog /> Option 2
+                      <FaCog /> Raise Query
                     </Link>
                   )}
                 </Menu.Item>
               </Menu.Items>
             </Transition>
           </Menu>
-          <Link href="/contact" className="hover:underline">
+          <Link href="#contact" className="hover:underline">
             Contact
           </Link>
           <UserButton />
@@ -79,13 +79,13 @@ const Navbar = () => {
         </button>
         {isMobileMenuOpen && (
           <div className="absolute top-20 z-[9999] right-5 bg-[rgba(25,39,122,1)] text-white flex flex-col p-4 gap-4 rounded-lg">
-            <Link href="/why-steam" className="hover:underline">
-              Why Steam?
+            <Link href="#about" className="hover:underline">
+              About
             </Link>
-            <Link href="/services" className="hover:underline">
+            <Link href="/" className="hover:underline">
               Services
             </Link>
-            <Link href="/contact" className="hover:underline">
+            <Link href="#contact" className="hover:underline">
               Contact
             </Link>
             <Link

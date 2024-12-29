@@ -6,7 +6,7 @@ import steamLogo from "../assets/logo.png"; // Replace with the actual logo path
 
 const ContactUs = () => {
   return (
-    <div className="min-h-screen bg-black flex flex-col items-center justify-center text-white px-6 py-16">
+    <div id="contact" className="min-h-screen bg-black flex flex-col items-center justify-center text-white px-6 py-16">
       {/* Heading */}
       <h2 className="text-2xl md:text-3xl font-bold text-[#3F7596] text-center mb-8">
         Have further queries? Reach out to us

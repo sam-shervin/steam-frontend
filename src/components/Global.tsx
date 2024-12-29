@@ -10,7 +10,7 @@ const GlobeComponent = () => {
   const isInView = useInView(ref, { once: false });
 
   return (
-    <div
+    <div id="about"
       ref={ref}
       className="min-h-[70vh] flex flex-col md:flex-row items-center justify-center text-white px-8 md:px-24 py-16 gap-12"
     >
