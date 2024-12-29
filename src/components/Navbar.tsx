@@ -5,14 +5,14 @@ import Image from "next/image";
 import { Menu, Transition } from "@headlessui/react";
 import { FaBars, FaTimes, FaCog, FaRocket } from "react-icons/fa";
 import logo from "../assets/logo.png";
-import UserButton from "./loginButton";
+// import UserButton from "./loginButton";
 
 const Navbar = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   return (
     <section className="sticky top-0 z-50">
-      <nav className="bg-[rgba(25,39,122,1)] rounded-lg p-4 mx-auto w-[90vw] z-50 text-white flex items-center justify-between shadow-lg">
+      <nav className="bg-[rgba(25,39,122,1)] rounded-lg p-4 mx-auto w-full z-50 text-white flex items-center justify-between shadow-lg">
         {/* Logo Section */}
         <Link href="/" className="flex items-center gap-2">
           <Image src={logo} alt="Logo" width={40} height={40} />
@@ -67,7 +67,7 @@ const Navbar = () => {
           <Link href="/contact" className="hover:underline">
             Contact
           </Link>
-          <UserButton />
+          {/* <UserButton /> */}
         </div>
 
         {/* Mobile Menu */}

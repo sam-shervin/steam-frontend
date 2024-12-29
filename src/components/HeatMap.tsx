@@ -1,6 +1,7 @@
 'use client';
 
 import React, { useRef } from "react";
+import { useRouter } from "next/navigation";
 import Image from "next/image";
 import { motion, useInView } from "framer-motion";
 import heatmap from "../assets/heatmap.jpg"; // Replace with your heatmap image path.
@@ -15,6 +16,11 @@ const HeatmapSection = () => {
     if (complaintSection) {
       complaintSection.scrollIntoView({ behavior: "smooth" });
     }
+  };
+
+  const router = useRouter();
+  const handleRaiseTicketClick = () => {
+    router.push("/map");
   };
 
   return (
@@ -40,7 +46,7 @@ const HeatmapSection = () => {
           <li>Detailed insights on hover or click.</li>
           <li>Time sliders to compare changes over time.</li>
         </ul>
-        <button className="bg-[#3F7596] text-white md:ml-12 px-6 py-3 rounded-lg hover:scale-105 transition transform duration-300">
+        <button onClick={handleRaiseTicketClick} className="bg-[#3F7596] text-white md:ml-12 px-6 py-3 rounded-lg hover:scale-105 transition transform duration-300">
           Generate Pollution Heatmap
         </button>
         {/* Motivational Section */}
