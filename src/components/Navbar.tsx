@@ -5,7 +5,7 @@ import Image from "next/image";
 import { Menu, Transition } from "@headlessui/react";
 import { FaBars, FaTimes, FaCog, FaRocket } from "react-icons/fa";
 import logo from "../assets/logo.png";
-// import UserButton from "./loginButton";
+import UserButton from "./loginButton";
 
 const Navbar = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -67,7 +67,7 @@ const Navbar = () => {
           <Link href="/contact" className="hover:underline">
             Contact
           </Link>
-          {/* <UserButton /> */}
+          <UserButton />
         </div>
 
         {/* Mobile Menu */}
